@@ -60,6 +60,14 @@ class Plateform():
         pass
 
     @classmethod
+    def usage(self):
+        """
+        fetch_rate_limit
+        """
+        url = urlConstruct(["usage.json", ])
+        return json.loads(Ressource.http_request(url, {}))
+
+    @classmethod
     def applications(self, application_id, end_path, params = {}):
         Validation().id(application_id)
         Validation().params(params)
